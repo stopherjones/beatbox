@@ -6,7 +6,7 @@ import { audioEngine } from '../audio/engine';
 
 interface LivePerformancePanelProps {
   tracks: Track[];
-  onTracksChange: (tracks: Track[]) => void;
+  onTracksChange: (tracksOrUpdater: Track[] | ((prev: Track[]) => Track[])) => void;
   isRecording: boolean;
   onToggleRecording: () => void;
   metronomeEnabled: boolean;
@@ -132,88 +132,90 @@ export const LivePerformancePanel: React.FC<LivePerformancePanelProps> = ({
       // 2. If RECORDING is active, write step to pattern!
       if (isRecording) {
         const targetStepIdx = currentStep;
-        const stepCount = tracks[0]?.steps.length || 16;
 
-        let updatedTracks = [...tracks];
-        let targetTrackIndex = -1;
+        onTracksChange((prevTracks) => {
+          const stepCount = prevTracks[0]?.steps.length || 16;
+          let updatedTracks = [...prevTracks];
+          let targetTrackIndex = -1;
 
-        if (type === 'drum') {
-          // Find existing track for this sound
-          targetTrackIndex = updatedTracks.findIndex((t) => t.sound === sound);
+          if (type === 'drum') {
+            // Find existing track for this sound
+            targetTrackIndex = updatedTracks.findIndex((t) => t.sound === sound);
 
-          // If no track exists, create one!
-          if (targetTrackIndex === -1) {
-            const padDef = DRUM_PADS.find((p) => p.sound === sound);
-            const newTrack: Track = {
-              id: `t_${sound}_${Date.now()}`,
-              name: padDef?.name || sound.toUpperCase(),
-              type: 'drum',
-              sound,
-              muted: false,
-              soloed: false,
-              volume: 0.8,
-              pan: 0,
-              color: padDef?.color || '#a855f7',
-              steps: Array.from({ length: stepCount }, () => ({
-                active: false,
-                note: 'C2',
-                velocity: liveVelocity,
-              })),
+            // If no track exists, create one!
+            if (targetTrackIndex === -1) {
+              const padDef = DRUM_PADS.find((p) => p.sound === sound);
+              const newTrack: Track = {
+                id: `t_${sound}_${Date.now()}`,
+                name: padDef?.name || sound.toUpperCase(),
+                type: 'drum',
+                sound,
+                muted: false,
+                soloed: false,
+                volume: 0.8,
+                pan: 0,
+                color: padDef?.color || '#a855f7',
+                steps: Array.from({ length: stepCount }, () => ({
+                  active: false,
+                  note: 'C2',
+                  velocity: liveVelocity,
+                })),
+              };
+              updatedTracks.push(newTrack);
+              targetTrackIndex = updatedTracks.length - 1;
+            }
+          } else {
+            // Synth track
+            if (selectedTrackId) {
+              targetTrackIndex = updatedTracks.findIndex((t) => t.id === selectedTrackId);
+            }
+            if (targetTrackIndex === -1 || updatedTracks[targetTrackIndex].type !== 'synth') {
+              targetTrackIndex = updatedTracks.findIndex((t) => t.type === 'synth');
+            }
+
+            // If still no synth track exists, create one!
+            if (targetTrackIndex === -1) {
+              const newTrack: Track = {
+                id: `t_synth_${Date.now()}`,
+                name: sound === 'bass' ? 'Bass Synth' : 'Synth Keyboard',
+                type: 'synth',
+                sound: sound || 'synth',
+                muted: false,
+                soloed: false,
+                volume: 0.8,
+                pan: 0,
+                color: '#a855f7',
+                steps: Array.from({ length: stepCount }, () => ({
+                  active: false,
+                  note: 'C3',
+                  velocity: liveVelocity,
+                })),
+              };
+              updatedTracks.push(newTrack);
+              targetTrackIndex = updatedTracks.length - 1;
+            }
+          }
+
+          // Record step into target track
+          if (targetTrackIndex !== -1) {
+            const trackToMod = updatedTracks[targetTrackIndex];
+            const newSteps = [...trackToMod.steps];
+            const finalNote = note ? transposeNote(note, octaveOffset * 12) : trackToMod.steps[targetStepIdx]?.note || 'C3';
+
+            newSteps[targetStepIdx] = {
+              active: true,
+              note: finalNote,
+              velocity: liveVelocity,
             };
-            updatedTracks.push(newTrack);
-            targetTrackIndex = updatedTracks.length - 1;
-          }
-        } else {
-          // Synth track
-          if (selectedTrackId) {
-            targetTrackIndex = updatedTracks.findIndex((t) => t.id === selectedTrackId);
-          }
-          if (targetTrackIndex === -1 || updatedTracks[targetTrackIndex].type !== 'synth') {
-            targetTrackIndex = updatedTracks.findIndex((t) => t.type === 'synth');
-          }
 
-          // If still no synth track exists, create one!
-          if (targetTrackIndex === -1) {
-            const newTrack: Track = {
-              id: `t_synth_${Date.now()}`,
-              name: sound === 'bass' ? 'Bass Synth' : 'Synth Keyboard',
-              type: 'synth',
-              sound: sound || 'synth',
-              muted: false,
-              soloed: false,
-              volume: 0.8,
-              pan: 0,
-              color: '#a855f7',
-              steps: Array.from({ length: stepCount }, () => ({
-                active: false,
-                note: 'C3',
-                velocity: liveVelocity,
-              })),
+            updatedTracks[targetTrackIndex] = {
+              ...trackToMod,
+              steps: newSteps,
             };
-            updatedTracks.push(newTrack);
-            targetTrackIndex = updatedTracks.length - 1;
           }
-        }
 
-        // Record step into target track
-        if (targetTrackIndex !== -1) {
-          const trackToMod = updatedTracks[targetTrackIndex];
-          const newSteps = [...trackToMod.steps];
-          const finalNote = note ? transposeNote(note, octaveOffset * 12) : trackToMod.steps[targetStepIdx]?.note || 'C3';
-
-          newSteps[targetStepIdx] = {
-            active: true,
-            note: finalNote,
-            velocity: liveVelocity,
-          };
-
-          updatedTracks[targetTrackIndex] = {
-            ...trackToMod,
-            steps: newSteps,
-          };
-
-          onTracksChange(updatedTracks);
-        }
+          return updatedTracks;
+        });
       }
     },
     [isRecording, currentStep, tracks, octaveOffset, synthSettings, liveVelocity, selectedTrackId, onTracksChange]

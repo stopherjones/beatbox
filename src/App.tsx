@@ -237,16 +237,20 @@ export default function App() {
         audioEngine.triggerMetronome(stepTime, currentStepRef.current === 0);
       }
 
-      scheduleStep(currentStepRef.current, stepTime, targetPattern);
+      const scheduledStep = currentStepRef.current;
+      scheduleStep(scheduledStep, stepTime, targetPattern);
 
-      // Advance time and step
-      nextStepTimeRef.current += secondsPerStep;
+      // Schedule UI currentStep update at exact audio playback time
+      const delayMs = Math.max(0, (stepTime - ctx.currentTime) * 1000);
+      setTimeout(() => {
+        setCurrentStep(scheduledStep);
+      }, delayMs);
 
       // Advance step pointer
+      nextStepTimeRef.current += secondsPerStep;
       const maxSteps = targetPattern.stepCount || 16;
       const nextStepIdx = (currentStepRef.current + 1) % maxSteps;
       currentStepRef.current = nextStepIdx;
-      setCurrentStep(nextStepIdx);
 
       // Song Mode block progression logic on loop end
       if (nextStepIdx === 0 && isSongMode && songBlocks.length > 0) {
@@ -276,7 +280,7 @@ export default function App() {
     metronomeEnabled,
   ]);
 
-  // Transport Controls
+  // Transport & Recording Controls
   const handleTogglePlay = () => {
     const ctx = audioEngine.ensureContext();
 
@@ -290,6 +294,16 @@ export default function App() {
       setIsPlaying(true);
       timerIdRef.current = window.setInterval(() => scheduler(), 25);
     }
+  };
+
+  const handleToggleRecording = () => {
+    setIsRecording((prev) => {
+      const nextRec = !prev;
+      if (nextRec && !isPlaying) {
+        handleTogglePlay();
+      }
+      return nextRec;
+    });
   };
 
   const handleStop = () => {
@@ -331,7 +345,7 @@ export default function App() {
         handleStop();
       } else if (e.key.toLowerCase() === 'r') {
         e.preventDefault();
-        setIsRecording((prev) => !prev);
+        handleToggleRecording();
       } else if (e.key.toLowerCase() === 'm') {
         e.preventDefault();
         setMetronomeEnabled((prev) => !prev);
@@ -521,7 +535,7 @@ export default function App() {
         onTogglePlay={handleTogglePlay}
         onStop={handleStop}
         isRecording={isRecording}
-        onToggleRecording={() => setIsRecording(!isRecording)}
+        onToggleRecording={handleToggleRecording}
         metronomeEnabled={metronomeEnabled}
         onToggleMetronome={() => setMetronomeEnabled(!metronomeEnabled)}
         bpm={bpm}
@@ -588,9 +602,14 @@ export default function App() {
         {/* Real-Time Performance & Live Recording Deck */}
         <LivePerformancePanel
           tracks={activePattern.tracks}
-          onTracksChange={(newTracks) => updateActivePattern((p) => ({ ...p, tracks: newTracks }))}
+          onTracksChange={(tracksOrUpdater) =>
+            updateActivePattern((p) => ({
+              ...p,
+              tracks: typeof tracksOrUpdater === 'function' ? tracksOrUpdater(p.tracks) : tracksOrUpdater,
+            }))
+          }
           isRecording={isRecording}
-          onToggleRecording={() => setIsRecording(!isRecording)}
+          onToggleRecording={handleToggleRecording}
           metronomeEnabled={metronomeEnabled}
           onToggleMetronome={() => setMetronomeEnabled(!metronomeEnabled)}
           isPlaying={isPlaying}
