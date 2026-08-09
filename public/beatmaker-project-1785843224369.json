@@ -1,0 +1,815 @@
+{
+  "version": 1,
+  "type": "beatmaker_project",
+  "name": "Beatmaker Project (04/08/2026)",
+  "savedAt": "2026-08-04T11:33:44.368Z",
+  "bpm": 160,
+  "swing": 0,
+  "stepCount": 16,
+  "activePatternId": "p_1785843149480",
+  "patterns": [
+    {
+      "id": "p_dry",
+      "name": "Pattern A",
+      "bpm": 160,
+      "swing": 0,
+      "stepCount": 16,
+      "synthSettings": {
+        "osc1Wave": "sawtooth",
+        "osc2Wave": "triangle",
+        "osc2Detune": 5,
+        "subLevel": 0.4,
+        "cutoff": 2500,
+        "resonance": 2,
+        "envAmount": 2000,
+        "attack": 0.01,
+        "decay": 0.2,
+        "sustain": 0.4,
+        "release": 0.2,
+        "lfoRate": 2,
+        "lfoDepth": 0,
+        "lfoTarget": "cutoff"
+      },
+      "fxSettings": {
+        "delayTime": 0.2,
+        "delayFeedback": 0,
+        "delayMix": 0,
+        "reverbDecay": 1,
+        "reverbMix": 0,
+        "distortion": 0
+      },
+      "tracks": [
+        {
+          "id": "t_1785842722737",
+          "name": "Sub Kick",
+          "type": "drum",
+          "sound": "kick",
+          "muted": false,
+          "soloed": false,
+          "volume": 0.8,
+          "pan": 0,
+          "color": "#ef4444",
+          "steps": [
+            {
+              "active": true,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": true,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": true,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": true,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p_1785842755248",
+      "name": "Pattern A (Copy)",
+      "bpm": 160,
+      "swing": 0,
+      "stepCount": 16,
+      "synthSettings": {
+        "osc1Wave": "sawtooth",
+        "osc2Wave": "triangle",
+        "osc2Detune": 5,
+        "subLevel": 0.4,
+        "cutoff": 2500,
+        "resonance": 2,
+        "envAmount": 2000,
+        "attack": 0.01,
+        "decay": 0.2,
+        "sustain": 0.4,
+        "release": 0.2,
+        "lfoRate": 2,
+        "lfoDepth": 0,
+        "lfoTarget": "cutoff"
+      },
+      "fxSettings": {
+        "delayTime": 0.2,
+        "delayFeedback": 0,
+        "delayMix": 0,
+        "reverbDecay": 1,
+        "reverbMix": 0,
+        "distortion": 0
+      },
+      "tracks": [
+        {
+          "id": "t_1785842873898",
+          "name": "Punch Snare",
+          "type": "drum",
+          "sound": "snare",
+          "muted": false,
+          "soloed": false,
+          "volume": 0.8,
+          "pan": 0,
+          "color": "#f97316",
+          "steps": [
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": true,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": true,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": true,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": true,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            }
+          ]
+        },
+        {
+          "id": "t_1785842968804",
+          "name": "Sub Kick",
+          "type": "drum",
+          "sound": "kick",
+          "muted": false,
+          "soloed": false,
+          "volume": 0.8,
+          "pan": 0,
+          "color": "#ef4444",
+          "steps": [
+            {
+              "active": true,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": true,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": true,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": true,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p_1785843149480",
+      "name": "Pattern A (Copy) (Copy)",
+      "bpm": 160,
+      "swing": 0,
+      "stepCount": 16,
+      "synthSettings": {
+        "osc1Wave": "sawtooth",
+        "osc2Wave": "triangle",
+        "osc2Detune": 5,
+        "subLevel": 0.4,
+        "cutoff": 2500,
+        "resonance": 2,
+        "envAmount": 2000,
+        "attack": 0.01,
+        "decay": 0.2,
+        "sustain": 0.4,
+        "release": 0.2,
+        "lfoRate": 2,
+        "lfoDepth": 0,
+        "lfoTarget": "cutoff"
+      },
+      "fxSettings": {
+        "delayTime": 0.2,
+        "delayFeedback": 0,
+        "delayMix": 0,
+        "reverbDecay": 1,
+        "reverbMix": 0,
+        "distortion": 0
+      },
+      "tracks": [
+        {
+          "id": "t_1785842873898",
+          "name": "Punch Snare",
+          "type": "drum",
+          "sound": "snare",
+          "muted": false,
+          "soloed": false,
+          "volume": 0.8,
+          "pan": 0,
+          "color": "#f97316",
+          "steps": [
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": true,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": true,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            }
+          ]
+        },
+        {
+          "id": "t_1785842968804",
+          "name": "Sub Kick",
+          "type": "drum",
+          "sound": "kick",
+          "muted": false,
+          "soloed": false,
+          "volume": 0.8,
+          "pan": 0,
+          "color": "#ef4444",
+          "steps": [
+            {
+              "active": true,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": true,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            }
+          ]
+        },
+        {
+          "id": "t_1785843161611",
+          "name": "Open Hat",
+          "type": "drum",
+          "sound": "hihat_open",
+          "muted": false,
+          "soloed": false,
+          "volume": 0.8,
+          "pan": 0,
+          "color": "#eab308",
+          "steps": [
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": true,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": true,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            }
+          ]
+        },
+        {
+          "id": "t_1785843164335",
+          "name": "Closed Hat",
+          "type": "drum",
+          "sound": "hihat_closed",
+          "muted": false,
+          "soloed": false,
+          "volume": 0.8,
+          "pan": 0,
+          "color": "#eab308",
+          "steps": [
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": true,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": true,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            },
+            {
+              "active": false,
+              "note": "C2",
+              "velocity": 0.8
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "songBlocks": [
+    {
+      "id": "sb_1",
+      "patternId": "p_dry",
+      "repeats": 2
+    },
+    {
+      "id": "sb_1785842884801_tcup",
+      "patternId": "p_1785842755248",
+      "repeats": 4
+    },
+    {
+      "id": "sb_1785843007691_oc4f",
+      "patternId": "p_dry",
+      "repeats": 2
+    },
+    {
+      "id": "sb_1785843049422_9ifx",
+      "patternId": "p_1785842755248",
+      "repeats": 3
+    },
+    {
+      "id": "sb_1785843152339_6s95",
+      "patternId": "p_1785843149480",
+      "repeats": 1
+    }
+  ],
+  "isSongMode": true,
+  "synthSettings": {
+    "osc1Wave": "sawtooth",
+    "osc2Wave": "triangle",
+    "osc2Detune": 5,
+    "subLevel": 0.4,
+    "cutoff": 2500,
+    "resonance": 2,
+    "envAmount": 2000,
+    "attack": 0.01,
+    "decay": 0.2,
+    "sustain": 0.4,
+    "release": 0.2,
+    "lfoRate": 2,
+    "lfoDepth": 0,
+    "lfoTarget": "cutoff"
+  },
+  "fxSettings": {
+    "delayTime": 0.2,
+    "delayFeedback": 0,
+    "delayMix": 0,
+    "reverbDecay": 1,
+    "reverbMix": 0,
+    "distortion": 0
+  },
+  "selectedScale": "minor"
+}
