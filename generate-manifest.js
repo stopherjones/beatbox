@@ -3,7 +3,7 @@ import path from 'path';
 
 const publicDir = path.resolve('public');
 const files = fs.readdirSync(publicDir)
-  .filter(file => file.endsWith('.json'))
+  .filter(file => file.endsWith('.json') && file !== 'project-manifest.json')
   .map(file => ({
     label: file
       .replace('.json', '')

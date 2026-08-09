@@ -6,5 +6,9 @@
   {
     "label": "Beatmaker Project Reggae",
     "path": "./beatmaker-project-reggae.json"
+  },
+  {
+    "label": "Project Manifest",
+    "path": "./project-manifest.json"
   }
 ]
